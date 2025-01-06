@@ -1,6 +1,6 @@
 # LLMs
 
-**Help desk** allows you to create a Question Answering bot with a streamlit UI using your company Confluence data.
+**Help desk** allows you to create a Question Answering bot with a streamlit UI using your data.
 
 <p align="center">
   <img src="./docs/help_desk.gif" alt="animated" />
