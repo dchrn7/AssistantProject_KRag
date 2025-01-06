@@ -1,7 +1,6 @@
 import re
 import os 
 from collections import defaultdict
-from pdf2image import convert_from_path
 
 class SourceOrganizer:
     def __init__(self, sources_string):
