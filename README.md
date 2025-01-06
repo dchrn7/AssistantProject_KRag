@@ -55,10 +55,12 @@ jupyter lab
     ├── docs/                       # Documentation files
     ├── src/                        # The main directory for computer demo
         ├── __init__.py
-        ├── load_db.py              # Load data from confluence and creates smart chunks
+        ├──  PDFViewer.py           # Allow the user to view the pdf 
+        ├── load_db.py              # Load data from local folder and creates smart chunks
         ├── help_desk.py            # Instantiates the LLMs, retriever and chain
         ├── main.py                 # Run the Chatbot for a simple question
         ├── streamlit.py            # Run the Chatbot in streamlit where you can ask your own questions
+        ├── SourcesOrganize.py      # Organize the sources format 
         ├── evaluate.py             # Evaluate the RAG model based on questions-answers samples
 
     ├── notebooks/                  # Interactive code, useful for try and learn

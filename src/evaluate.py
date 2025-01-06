@@ -1,10 +1,10 @@
 import os
 import pandas as pd
-from help_desk import HelpDesk
+#from help_desk import HelpDesk
 from dotenv import load_dotenv, find_dotenv
 from langchain.evaluation import load_evaluator
 from langchain.evaluation import EmbeddingDistance
-from config import EVALUATION_DATASET
+from project_config import EVALUATION_DATASET
 
 
 def predict(model, question):
@@ -17,15 +17,22 @@ def open_evaluation_dataset(filepath):
     return df
 
 
-def get_levenshtein_distance(model, reference_text, prediction_text):
+def get_levenshtein_distance(reference_text, prediction_text):
     evaluator = load_evaluator("string_distance")
     return evaluator.evaluate_strings(
         prediction=prediction_text,
         reference=reference_text
     )
 
-def get_cosine_distance(model, reference_text, prediction_text):
+def get_cosine_distance(reference_text, prediction_text):
     evaluator = load_evaluator("embedding_distance", distance_metric=EmbeddingDistance.COSINE)
+    return evaluator.evaluate_strings(
+        prediction=prediction_text,
+        reference=reference_text
+    )
+
+def get_euclidian_distance(reference_text, prediction_text):
+    evaluator = load_evaluator("embedding_distance", distance_metric=EmbeddingDistance.EUCLIDEAN)
     return evaluator.evaluate_strings(
         prediction=prediction_text,
         reference=reference_text
@@ -67,7 +74,7 @@ def run():
 
 if __name__ == '__main__':
     load_dotenv(find_dotenv())
-    model = HelpDesk(new_db=True)
+    #model = HelpDesk(new_db=True)
     dataset = open_evaluation_dataset(EVALUATION_DATASET)
     evaluate_dataset(model, dataset)
 

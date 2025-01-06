@@ -1,11 +1,17 @@
-# Demo
-if __name__ == '__main__':
-    from help_desk import HelpDesk
+from src.help_desk import HelpDesk
+# src/__main__.py
+import subprocess
+import sys
 
-    model = HelpDesk(new_db=True)
+if __name__ == "__main__":
+    #Lancer Streamlit avec subprocess
+    subprocess.run([sys.executable, "-m", "streamlit", "run", "src/streamlit.py"])
 
-    print(model.db._collection.count())
 
-    prompt = 'Comment faire ma photo de profil Octo ?'
-    result, sources = model.retrieval_qa_inference(prompt)
-    print(result, sources)
+    #model = HelpDesk(new_db=True)
+
+    #print(model.db._collection.count())
+
+    #prompt = "le football américain ?"
+    #result = model.retrieval_qa_inference(prompt)
+    #print(result)
