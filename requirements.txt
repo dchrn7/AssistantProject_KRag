@@ -4,7 +4,6 @@ langchain_community
 tabulate
 python-environ
 notebook
-re
 kaggle
 yt_dlp
 ffmpeg
