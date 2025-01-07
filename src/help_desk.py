@@ -9,8 +9,8 @@ from .load_db import DataLoader
 from collections import Counter, defaultdict
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
-from langchain_openai.embeddings import OpenAIEmbeddings
-from langchain_openai import ChatOpenAI
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.chat_models import ChatOpenAI
 from project_config import (
     OPENAI_API_KEY
 )
