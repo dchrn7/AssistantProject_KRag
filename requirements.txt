@@ -1,11 +1,12 @@
 langchain
 langchain_community
-langchain_openai
+langchain openai
 collections
 openai
 tabulate
 python-environ
 notebook
+re
 kaggle
 yt_dlp
 ffmpeg
