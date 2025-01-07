@@ -14,6 +14,7 @@ pytube  # Get videos from playlist video
 streamlit
 pydantic # https://github.com/hwchase17/langchain/issues/7548
 python-dotenv
+PyPDF2
 
 # Vector DB
 pinecone-client
