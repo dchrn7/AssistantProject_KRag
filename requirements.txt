@@ -1,7 +1,6 @@
 langchain
 openai
 langchain_community
-collections
 tabulate
 python-environ
 notebook
