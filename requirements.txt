@@ -9,7 +9,6 @@ yt_dlp
 ffmpeg
 tiktoken
 logging
-shutil
 lark
 pydub  # Load text with Whisper from videos
 pytube  # Get videos from playlist video
