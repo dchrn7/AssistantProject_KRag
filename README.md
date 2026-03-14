@@ -1,48 +1,44 @@
-# LLMs
+# RAG HelpDesk — Confluence Q&A Assistant
 
-**Help desk** allows you to create a Question Answering bot with a streamlit UI using your data.
+> Built on top of [BastinFlorian/RAG-Chatbot-with-Confluence](https://github.com/BastinFlorian/RAG-Chatbot-with-Confluence) (MIT License).  
+> Extended and adapted for custom dataset integration.
 
-<p align="center">
-  <img src="./docs/help_desk.gif" alt="animated" />
-</p>
+A Retrieval-Augmented Generation (RAG) chatbot that answers questions 
+over a Confluence knowledge base, with a Streamlit UI.
 
-# How to use
+**Stack:** LangChain · OpenAI · Streamlit · Confluence API
 
-- Create a virtual environnement:
-    - `python3.10 -m venv .venv`
-    - `source .venv/bin/activate`
-    - `pip install -r requirements.txt`
+---
 
-- Copy the env.template and fill your environment variables
-     - `cp .env.template .env`
+## My contributions vs. original
 
-- Check the `config.py` and `env.template` file.
-- To collect data from Confluence you will have to:
-  - Create your own Conluence space with page informations
-  - Create and feed your API key [here]('https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/')
-  - Insert in the  `env` file:
-    -  the space_key: `https://yoursite.atlassian.com/wiki/spaces/<space_key>/pages/`
-    -  the space_name: `<space_name>/spaces/<space_key>/pages/`
-    -  the email adress you used for your Confluence space
-    -  the OpenAI API key
+| | Original (BastinFlorian) | This fork |
+|---|---|---|
+| Data source | Confluence only | Confluence + custom datasets |
+| Environment | Local setup | Dev container (`.devcontainer`) |
+| File structure | Basic | Added `PDFViewer.py`, `SourcesOrganize.py`, `project_config.py` |
+| Evaluation | Generic Q&A pairs | Tuned on domain-specific data |
 
-- To run the streamlit app run:
+---
+
+## Setup
+```bash
+python3.10 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.template .env  # Fill in your API keys and Confluence credentials
 ```
+
+## Run
+```bash
 cd src
 streamlit run streamlit.py
 ```
 
-- To evaluate the quality of the RAG model:
-```
-# First replace the evaluation dataset file in the data folder with your topic questions
+## Evaluate
+```bash
 cd src
-python evaluate.py
-```
-
-- To use and deep dive with the notebook
-```
-ipython kernel install --name RAG --user  # Add the notebook kernel
-jupyter lab
+python evaluate.py  # Replace data/evaluation_dataset.tsv with your own Q&A pairs
 ```
 
 ## How it works ?
